@@ -4,6 +4,7 @@ from threading import Thread
 
 # a custom function that blocks for a moment
 def task():
+
     # block for a moment
     sleep(1)
     # display a message
@@ -15,4 +16,6 @@ thread = Thread(target=task)
 thread.start()
 # wait for the thread to finish
 print(f'{ctime()} Waiting for the thread...')
+
 thread.join()
+
