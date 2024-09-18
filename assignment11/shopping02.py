@@ -76,10 +76,10 @@ async def customer_generation(queue: Queue, customers: int):
 # Finally, we use the main method to initialize the queue, 
 # producer, and consumer, and start all concurrent tasks.
 async def main():
-    customer_queue = Queue(2)
+    customer_queue = Queue(5)
     customer_start_time = time.perf_counter()
-    customer_producer = asyncio.create_task(customer_generation(customer_queue,2))
-    cashiers = [checkout_customer(customer_queue, i) for i in range(2)]
+    customer_producer = asyncio.create_task(customer_generation(customer_queue,20))
+    cashiers = [checkout_customer(customer_queue, i) for i in range(5)]
 
     results = await asyncio.gather(customer_producer, *cashiers)
     print(20*'-')
