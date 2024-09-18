@@ -36,3 +36,4 @@ services:
       KAFKA_BROKERCONNECT: "kafka:19092"
     depends_on:
       - kafka
+    
